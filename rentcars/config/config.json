@@ -1,0 +1,23 @@
+{
+  "development": {
+    "database": "testing",
+    "password": "ANSKk08aPEDbFjDO",
+    "username": "root ",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "usuario",
+    "password": "senha",
+    "database": "nome_do_banco_teste",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "usuario",
+    "password": "senha",
+    "database": "nome_do_banco_producao",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
