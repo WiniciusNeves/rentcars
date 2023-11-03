@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Entrada</title>
+    <script src="Atualizar.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Atualizar Entrada</h1>
+        <h4>Aqui você vai Atualizar um entrada ja existende se tiver, so precisa informa o ID, e os novos dados:</h4>
+        <form id="novaForm" action="http://localhost:3000/">
+            <label for="ID">ID:</label>
+            <input type="text" id="ID" name="ID">
+
+            <label for="locadora">Locadora :</label>
+            <input type="text" id="locadora" name="locadora">
+
+            <label for="modelo">Modelo :</label>
+            <input type="text" id="modelo" name="modelo">
+
+            <label for="marca">Marca :</label>
+            <input type="text" id="marca" name="marca">
+
+            <label for="ano">Ano :</label>
+            <input type="text" id="ano" name="ano">
+
+            <label for="motor">Motor :</label>
+            <input type="text" id="motor" name="motor">
+
+            <label for="numero_portas">Número de Portas :</label>
+            <input type="text" id="numero_portas" name="numero_portas">
+
+            <label for="tipo_cambio">Tipo de Câmbio :</label>
+            <input type="text" id="tipo_cambio" name="tipo_cambio">
+
+            <label for="ar_condicionad">Ar Condicionado :</label>
+            <input type="checkbox" id="ar_condicionad" name="ar_condicionad">
+            <br><br>
+         
+
+            <button type="submit" id="salvarDados">Salvar Dados</button>
+        </form>
+    </div>
+</html>
