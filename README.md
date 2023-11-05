@@ -19,6 +19,9 @@ Criei uma pasta chamada "Páginas" que contém os arquivos iniciais index.html/s
 
 ### Configurar e iniciar o projeto (Backend/Frontend)
 ```bash
+mkdir desafio-rentcars
+```
+```bash
 cd desafio-rentcars
 ```
 
