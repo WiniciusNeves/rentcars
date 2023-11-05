@@ -30,7 +30,7 @@ npm install
 ```
 
 ```bash
-npm run start
+npm start
 ```
 
 para iniciar o projeto 
