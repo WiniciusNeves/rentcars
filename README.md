@@ -35,7 +35,8 @@ npm run start
 
 para iniciar o projeto 
 
-Utilizar npm.
+#Utilizar npm.
+
 
 ### Instalação das dependências do Backend:
 
