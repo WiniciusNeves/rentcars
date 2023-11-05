@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Entrada</title>
+    <script src="Atualizar.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    html {
+        box-sizing: border-box;
+        height: 100%;
+
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        align-content: center;
+        align-items: center;
+        background: linear-gradient(320deg, #ffc400, rgb(0, 0, 0), #7c7c7c);
+        display: flex;
+        font-family: 'Dosis', sans-serif;
+        font-display: swap;
+        height: 100%;
+        justify-content: center;
+        margin: 0;
+
+    }
+
+    .container {
+        max-width: 606px;
+        margin: 20px auto;
+        padding: 25px;
+        border: 1px solid #ffffff;
+        background-color: #ffae00;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        margin-top: 10px;
+    }
+
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: #000000;
+        color: #ffae00;
+        border: none;
+        border-radius: 0%;
+        cursor: pointer;
+        box-sizing: 10px;
+        float: center;
+        width: 100%;
+        margin-right: 100px;
+    }
+
+    button:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    div#cabeçalho {
+        border-color: #ccc;
+        border-radius: 15px;
+        width: 100%;
+        font: normal 12pt Arial;
+        text-align: left;
+    }
+
+    div#nome {
+        width: 100%;
+        font: normal 10pt Arial;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Atualizar Entrada</h1>
+        <h4>Aqui você vai Atualizar uma entrada já existente se tiver, só precisa informar o ID e os novos dados:</h4>
+        <form id="novaForm" action="/" method="PUT">
+            <label for="id">ID:</label>
+            <input type="text" name="id" id="id">
+
+            <label for="locadora">Locadora:</label>
+            <input type="text" name="locadora" id="locadora">
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="modelo" id="modelo">
+
+            <label for="marca">Marca:</label>
+            <input type="text" name="marca" id="marca">
+
+            <label for="ano">Ano:</label>
+            <input type="text" name="ano" id="ano">
+
+            <label for="motor">Motor:</label>
+            <input type="text" name="motor" id="motor">
+
+            <label for="numero_portas">Número de Portas:</label>
+            <input type="text" name="numero_portas" id="numero_portas">
+
+            <label for="tipo_cambio">Tipo de Cambio:</label>
+            <input type="text" name="tipo_cambio" id="tipo_cambio">
+
+            <label for="ar_condicionado">Ar Condicionado:</label>
+            <input type="checkbox" name="ar_condicionado" id="ar_condicionado">
+
+            <button type="submit" id="salvarDados">Salvar Dados</button>
+        </form>
+        <form action="/"><button type="submit" id="salvarDados">Voltar</button></form>
+    </div>
+    <script>
+        const form = document.getElementById('novaForm');
+        const salvarButton = document.getElementById('salvarDados');
+        
+        salvarButton.addEventListener('click', () => {
+            const id = document.getElementById('id').value;
+            const locadora = document.getElementById('locadora').value;
+            const modelo = document.getElementById('modelo').value;
+            const marca = document.getElementById('marca').value;
+            const ano = document.getElementById('ano').value;
+            const motor = document.getElementById('motor').value;
+            const numero_portas = document.getElementById('numero_portas').value;
+            const tipo_cambio = document.getElementById('tipo_cambio').value;
+            const ar_condicionado = document.getElementById('ar_condicionado').checked;
+    
+            const requestBody = {
+                locadora,
+                modelo,
+                marca,
+                ano,
+                motor,
+                numero_portas,
+                tipo_cambio,
+                ar_condicionado
+            };
+    
+            fetch(`/save/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    alert('Veículo atualizado com sucesso');
+                } else if (response.status === 404) {
+                    alert('Veículo não encontrado');
+                } else {
+                    alert('Erro ao atualizar veículo');
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        });
+    </script>
+    
+
+
+</html>
