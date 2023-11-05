@@ -107,11 +107,14 @@ router.put('/save/:id', async (req, res) => {
     return;
   }
 
+
   // Continue com a lógica de atualização usando o ID
   const { locadora, modelo, marca, ano, motor, numero_portas, tipo_cambio, ar_condicionado } = req.body;
 
   // Construa a condição com o ID
   const condition = { id: id };
+  let arCondicionado = parseInt(ar_condicionado);
+  if (isNaN(arCondicionado)) 
 
   Veiculos.update(
     {
