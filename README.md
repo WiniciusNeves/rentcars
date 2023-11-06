@@ -67,5 +67,5 @@ Ao acessar o projeto pela primeira vez, é recomendável, para evitar problemas 
 
 ### URL
 "O servidor está localizado na porta 3000 ou, se preferir, [http://localhost:3000](http://localhost:3000).
-obs. por favor so cliclk no meio da botão 
+obs. por favor so cliclk no meio da botão a onde esta em azul
 
