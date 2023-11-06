@@ -63,7 +63,7 @@ npm install bodyparsor
 Neste projeto, não foi utilizado o Docker devido a problemas técnicos, especialmente no caso de usuários do Windows. Entrei em contato com os representantes do projeto, que informaram que a ausência do Docker não é um problema.
 
 ### MySQL:
-Ao acessar o projeto pela primeira vez, é recomendável, para evitar problemas técnicos, ir até a pasta "database" e descomentar o comando "//connection.sync({force: true})". Esse comando força a sincronização com o banco de dados. Após executá-lo uma vez, comente-o novamente. Caso ocorra algum erro, verifique se criou previamente o banco de dados no MySQL com o nome "testing", utilizando o usuário "root" e a senha "ANSKk08aPEDbFjDO" (ambos obrigatórios)
+Ao acessar o projeto pela primeira vez, é recomendável, para evitar problemas técnicos, ir até a pasta "database" e descomentar o comando "//connection.sync({force: true})". Esse comando força a sincronização com o banco de dados. Após executá-lo uma vez, comente-o novamente. Caso ocorra algum erro, verifique se criou previamente o banco de dados no MySQL com o nome da database "testing", utilizando o usuário "root" e a senha "ANSKk08aPEDbFjDO" (ambos obrigatórios)
 
 ### URL
 "O servidor está localizado na porta 3000 ou, se preferir, [http://localhost:3000](http://localhost:3000).
