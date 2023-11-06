@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>listagem</title>
-    <link rel="stylesheet" href="/styles.css">
 
 </head>
 <style>
@@ -101,15 +100,14 @@
 <body>
     <div class="container">
         <h1>Listagem</h1>
-        <h4>Aqui vai listar todos os dados que estiver no banco de dados:</h4>
+        <h4>Verifique a lista completa de entradas ou busque por um ID específico.</h4>
         <form id="novaForm" action="http://localhost:3000/" method="get">
-            <label for="listar">Todas as listas</label>
-            <button type="submit" id="salvarDados"><a href="Listagem">listas todos</a></button>
+            <button type="submit" id="salvarDados"><a href="Listagem">
+                Todas as Entradas</a></button>
             <br>
-
-            <label for="lista-pelo-id">listas por id </label>
+            <label for="lista-pelo-id">ou digite o ID:</label>
             <input type="text" name="id" id="lista-pelo-id">
-            <button type="submit" id="salvarDados"><a href="javascript:void(0);" onclick="procurarPorID();">Listar por Id</a></button>
+            <button type="submit" id="salvarDados"><a href="javascript:void(0);" onclick="procurarPorID();">Buscar ID</a></button>
             <br>
             <button type="submit" id="salvarDados"><a href="/">Voltar</a></button>
             
