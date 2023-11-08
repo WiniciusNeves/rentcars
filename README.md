@@ -37,6 +37,7 @@ para iniciar o projeto
 
 ### Utilizar npm.
 
+## obs por favor na parte de id so coloque número crescentes tipo 1,2,3... se não o código vai bugar 
 
 ## Instalação das dependências do Backend:
 
