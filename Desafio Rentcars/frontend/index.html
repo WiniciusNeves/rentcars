@@ -45,6 +45,12 @@ body {
     background-color: #ffae00;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    float: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -64,25 +70,26 @@ input[type="text"] {
     border: 1px solid #ccc;
 }
 
-button {
-    display: block;
+.botao {
+    display: inline-block;
     width: 100%;
     padding: 15px;
     background-color: #000000;
     color: #ffae00;
     border: none;
     border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Dosis', sans-serif;
     cursor: pointer;
-    box-sizing: 10px;
-    float: center;
-    width: 100%;
-    margin-right: 100px;
-}
+  }
 
-button:hover {
+  .botao:hover {
     background-color: #ffffff;
     color: #000000;
-}
+  }
 
 div#cabeçalho{
     border-color: #ccc;
@@ -94,9 +101,11 @@ div#cabeçalho{
 
 div#nome{
     width: 100%;
-    font: normal 10pt Arial;
+    padding: 10px ;
     text-align: center;
 }
+
+
 
 </style>
 
@@ -110,18 +119,22 @@ div#nome{
       </div>
       <br>
       <div id="botao">
-        <button id="criar"><a href="Criar" target="_blank" rel="noopener noreferrer">Criar Entrada</a> </button>
-        <br>
-        <button id="editar"><a href="Listas" target="_blank" rel="noopener noreferrer">Listagem</a></button>
-        <br>
-        <button id="criar"><a href="save" target="_blank" rel="noopener noreferrer">Atualizar Entrada</a> </button>
-        <br>
-        <button id="editar"><a href="Deletar" target="_blank" rel="noopener noreferrer">Deletar Entrada</a></button>
+        <a class="botao" href="Criar" target="_blank" rel="noopener noreferrer">Criar Entrada</a>
+        <br><br>
+        <a class="botao" href="Listas" target="_blank" rel="noopener noreferrer">Listagem</a>
+        <br><br>
+        <a class="botao" href="save" target="_blank" rel="noopener noreferrer">Atualizar Entrada</a>
+        <br><br>
+        <a class="botao" href="Deletar" target="_blank" rel="noopener noreferrer">Deletar Entrada</a>
+      
+        <div id="nome">Desenvolvido pelo <br>&copy;Winicius Neves</div>
       </div>
     </form>
     <br>
-    <div id="nome">Desenvolvido pelo <br>&copy;Winicius Neves</div>
   </div>
+
+  <script>
+  </script>
  
 </body>
 

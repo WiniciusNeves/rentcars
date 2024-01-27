@@ -61,7 +61,7 @@ input[type="text"] {
     border: 1px solid #ccc;
 }
 
-button {
+.button {
     display: block;
     width: 100%;
     padding: 15px;
@@ -76,22 +76,39 @@ button {
     margin-right: 100px;
 }
 
-button:hover {
+.button:hover {
     background-color: #ffffff;
     color: #000000;
 }
+
+.button-link {
+        display: inline-block;
+        padding: 15px;
+        background-color: #000000;
+        color: #ffae00;
+        text-decoration: none; /* Remove o sublinhado do link */
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-sizing: 10px;
+        text-align: center; /* Centraliza o texto dentro do link */
+        width: 100%; /* Faz o link ocupar a largura total do contêiner */
+    }
+
+    .button-link:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
 
 div#cabeçalho{
     border-color: #ccc;
     border-radius: 15px;
     width: 100%;
-    font: normal 12pt Arial;
     text-align: left;
 }
 
 div#nome{
     width: 100%;
-    font: normal 10pt Arial;
     text-align: center;
 }
 
@@ -101,13 +118,13 @@ div#nome{
         <h1>Deletar Entrada</h1>
         <h4>Informe o ID da entrada que deseja deletar</h4>
         <form id="novaForm" action="/Deletar"  method="delete" onsubmit="deletarID(event)">
-            <label for="delete-vehicle-id">ID do Veículo:</label>
-            <input type="text" id="delete-vehicle-id" required>
+            <label for="delete-vehicle-id">ID do Veículo:</label >
+            <input type="text" id="delete-vehicle-id" required placeholder="Ex: 1">
             <br>
-            <button type="submit">Deletar</button>
+            <button class="button" type="submit">Deletar</button>
             <br>
         </form>
-        <button type="submit" id="salvarDados"><a href="/">Voltar</a></button>
+        <a class="button-link" href="/">Voltar</a>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -138,7 +155,12 @@ div#nome{
             } else {
                 alert('Por favor, insira um ID válido.');
             }
+
         }
+        document.getElementById('voltarBtn').addEventListener('click', function() {
+            window.history.back(); // Isso faz o navegador voltar para a página anterior
+        });
+
     </script>
     
 </body>

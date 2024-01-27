@@ -1,17 +1,16 @@
-const sequelize = require('sequelize')
-const Sequelize = sequelize.Sequelize
+require('dotenv').config();
+const Sequelize = require('sequelize');
 
-// Criando uma conexão com o banco de dados MySQL
 const connection = new Sequelize(
-  'testing',
-  'root',
-  'ANSKk08aPEDbFjDO', 
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    dialect: "mysql",
-    host: 'localhost',
-    port: 3307
+    dialect: process.env.DB_DIALECT,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT
   }
-)
+);
 
 // Definindo o modelo 'Veiculos'
 const Veiculos = connection.define('veiculos', {
@@ -54,14 +53,14 @@ const Veiculos = connection.define('veiculos', {
   },
 });
 
-connection.sync({force: true})
+//connection.sync({force: true})
 // Sincroniza o modelo do banco de dados com o banco de dados
 Veiculos.sync()
-.then(function() {
-  console.log('Modelo sincronizado com o banco de dados');
-})
-.catch(function(error) {
-  console.error(error);
-}); 
+  .then(function () {
+    console.log('Modelo sincronizado com o banco de dados');
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
 
 module.exports = Veiculos;

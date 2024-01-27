@@ -13,7 +13,7 @@ router.post('/Criar', (req, res) => {
 
   let arCondicionado = parseInt(ar_condicionado);
   if (isNaN(arCondicionado)) {
-
+    arCondicionado = 0;
   }
 
   Veiculos.create({
@@ -45,7 +45,7 @@ router.get('/Listagem', (req, res) => {
     .then(function (veiculos) {
       const options = veiculos.map(veiculo => `
       <option value="${veiculo.id}">
-        ID é: ${veiculo.id}, Locadora é: ${veiculo.locadora}, Modelo é: ${veiculo.modelo}, Ano é: ${veiculo.ano}, Motor é: ${veiculo.motor}, Número de Portas é: ${veiculo.numero_portas}, Tipo de Câmbio é: ${veiculo.tipo_cambio}, Ar Condicionado é: ${veiculo.ar_condicionado}
+        ID é: ${veiculo.id}, Locadora é: ${veiculo.locadora}, Modelo é: ${veiculo.modelo}, Marca é: ${veiculo.marca}, Ano é: ${veiculo.ano}, Motor é: ${veiculo.motor}, Número de Portas é: ${veiculo.numero_portas}, Tipo de Câmbio é: ${veiculo.tipo_cambio}, Ar Condicionado é: ${veiculo.ar_condicionado}
       </option>`
       );
 
@@ -71,14 +71,12 @@ router.get('/Listagem:id', (req, res) => {
         return;
       }
 
-      // Supondo que você tenha um elemento HTML select com o id "selectVeiculo" em sua página
       const selectHTML = `
         <select id="selectVeiculo">
-          <option value size="5"="${veiculo.ID}">ID: ${veiculo.id}, Locadora: ${veiculo.locadora}, Modelo: ${veiculo.modelo}, Ano: ${veiculo.ano}, Motor: ${veiculo.motor}, Número de Portas: ${veiculo.numero_portas}, Tipo de Câmbio: ${veiculo.tipo_cambio}, Ar Condicionado: ${veiculo.ar_condicionado}</option>
+          <option value size="5"="${veiculo.ID}">ID: ${veiculo.id}, Locadora: ${veiculo.locadora}, Modelo: ${veiculo.modelo}, Marca: ${veiculo.marca}, Ano: ${veiculo.ano}, Motor: ${veiculo.motor}, Número de Portas: ${veiculo.numero_portas}, Tipo de Câmbio: ${veiculo.tipo_cambio}, Ar Condicionado: ${veiculo.ar_condicionado}</option>
         </select>
       `;
-
-      // Adicione um botão "Voltar" usando um elemento <a>
+      
       const voltarButton = '<a href="/listas">Voltar</a>';
 
       res.send(`${selectHTML} <br> ${voltarButton}`);
@@ -96,52 +94,49 @@ router.get('/save', (req, res) => {
 });
 
 
-// Use req.params.id para obter o ID dinâmico
 router.put('/save/:id', async (req, res) => {
-  // Obtenha o valor do ID a partir dos parâmetros da solicitação
   const id = req.params.id;
 
-  // Certifique-se de que o ID não seja undefined ou nulo
+  
   if (id === undefined || id === null) {
     res.status(400).send('ID inválido na solicitação');
     return;
   }
 
 
-  // Continue com a lógica de atualização usando o ID
+  
   const { locadora, modelo, marca, ano, motor, numero_portas, tipo_cambio, ar_condicionado } = req.body;
 
-  // Construa a condição com o ID
   const condition = { id: id };
   let arCondicionado = parseInt(ar_condicionado);
-  if (isNaN(arCondicionado)) 
+  if (isNaN(arCondicionado))
 
-  Veiculos.update(
-    {
-      locadora,
-      modelo,
-      marca,
-      ano,
-      motor,
-      numero_portas,
-      tipo_cambio,
-      ar_condicionado
-    },
-    {
-      where: condition
-    }
-  )
-    .then(function (result) {
-      if (result[0] === 1) {
-        res.status(200).send('Veículo atualizado com sucesso');
-      } else {
-        res.status(404).send('Veículo não encontrado');
+    Veiculos.update(
+      {
+        locadora,
+        modelo,
+        marca,
+        ano,
+        motor,
+        numero_portas,
+        tipo_cambio,
+        ar_condicionado
+      },
+      {
+        where: condition
       }
-    })
-    .catch(function (error) {
-      console.error(error);
-      res.status(500).send('Erro ao atualizar veículo');
-    });
+    )
+      .then(function (result) {
+        if (result[0] === 1) {
+          res.status(200).send('Veículo atualizado com sucesso');
+        } else {
+          res.status(404).send('Veículo não encontrado');
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+        res.status(500).send('Erro ao atualizar veículo');
+      });
 });
 
 router.get('/Deletar/', (req, res) => {

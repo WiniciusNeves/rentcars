@@ -1,7 +1,7 @@
 // Importando as bibliotecas 'sequelize' e 'express'
 const sequelize = require('sequelize')
 const express = require('express')
-const router  = require('./router')
+const router = require('./router')
 const bodyparser = require('body-parser')
 const server = require('./config/database')
 // Importando o módulo 'Sequelize' da biblioteca 'sequelize'
